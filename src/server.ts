@@ -33,7 +33,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
     return res.status(400).send('Nenhum arquivo enviado');
   }
   return res.status(201).send({
-    fileName: req.file.filename
+    fileName: req.file.filename,
+    url: `${process.env.BASE_URL}/files/${req.file.filename}`
   });
 });
 
