@@ -2,10 +2,15 @@ import express from 'express';
 import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
+import cors from 'cors';
 
 import 'dotenv/config';
 
 const app = express();
+
+app.use(cors({
+  origin: '*'
+}));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
